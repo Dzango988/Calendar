@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Birthday Calendar</string>
+    <string name="add_birthday">Добавить день рождения</string>
+    <string name="name_hint">Имя</string>
+    <string name="date_hint">Дата (дд.мм)</string>
+    <string name="birthday_list">Список дней рождений</string>
+    <string name="widget_title">Ближайший день рождения</string>
+    <string name="widget_empty">Добавьте дни рождения в приложении</string>
+</resources>
