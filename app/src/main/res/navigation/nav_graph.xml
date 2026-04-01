@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/calendarFragment">
+
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.calendar.importantdates.ui.calendar.CalendarFragment"
+        android:label="Календарь"
+        tools:layout="@layout/fragment_calendar">
+        <action
+            android:id="@+id/action_calendar_to_add_date"
+            app:destination="@id/addEditDateFragment" />
+        <action
+            android:id="@+id/action_calendar_to_edit_date"
+            app:destination="@id/addEditDateFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/eventsListFragment"
+        android:name="com.calendar.importantdates.ui.events.EventsListFragment"
+        android:label="События"
+        tools:layout="@layout/fragment_events_list">
+        <action
+            android:id="@+id/action_events_list_to_add_date"
+            app:destination="@id/addEditDateFragment" />
+        <action
+            android:id="@+id/action_events_list_to_edit_date"
+            app:destination="@id/addEditDateFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addEditDateFragment"
+        android:name="com.calendar.importantdates.ui.events.AddEditDateFragment"
+        android:label="Добавить дату"
+        tools:layout="@layout/fragment_add_edit_date">
+        <argument
+            android:name="existingDate"
+            app:argType="com.calendar.importantdates.data.db.ImportantDate"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="selectedDay"
+            app:argType="integer"
+            android:defaultValue="1" />
+        <argument
+            android:name="selectedMonth"
+            app:argType="integer"
+            android:defaultValue="1" />
+        <argument
+            android:name="selectedYear"
+            app:argType="integer"
+            android:defaultValue="2024" />
+    </fragment>
+
+</navigation>

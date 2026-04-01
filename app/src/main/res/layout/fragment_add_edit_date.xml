@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorBackground"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/content_padding">
+
+        <!-- Название -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilTitle"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="@string/title"
+            app:startIconDrawable="@drawable/ic_notification">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapSentences"
+                android:maxLines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Описание -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilDescription"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="@string/description">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapSentences|textMultiLine"
+                android:maxLines="3" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Дата: день, месяц -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilDay"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:hint="@string/day">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="2" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilMonth"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:hint="@string/month">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etMonth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="2" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <!-- Ежегодное событие -->
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/switchRecurring"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:checked="true"
+            android:text="@string/recurring_yearly"
+            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+        <!-- Год (скрыт при ежегодном) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilYear"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="@string/year"
+            android:visibility="gone">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="4" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Категория -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="@string/category"
+            android:textAppearance="?attr/textAppearanceLabelLarge" />
+
+        <Spinner
+            android:id="@+id/spinnerCategory"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_card"
+            android:padding="8dp" />
+
+        <!-- Напоминание -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="@string/reminder"
+            android:textAppearance="?attr/textAppearanceLabelLarge" />
+
+        <Spinner
+            android:id="@+id/spinnerReminder"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_card"
+            android:padding="8dp" />
+
+        <!-- Выбор цвета -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/color"
+            android:textAppearance="?attr/textAppearanceLabelLarge" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp"
+            android:gravity="center_vertical">
+
+            <View android:id="@+id/color1" android:layout_width="36dp" android:layout_height="36dp"
+                android:layout_margin="4dp" android:background="@drawable/bg_color_circle" />
+            <View android:id="@+id/color2" android:layout_width="36dp" android:layout_height="36dp"
+                android:layout_margin="4dp" android:background="@drawable/bg_color_circle" />
+            <View android:id="@+id/color3" android:layout_width="36dp" android:layout_height="36dp"
+                android:layout_margin="4dp" android:background="@drawable/bg_color_circle" />
+            <View android:id="@+id/color4" android:layout_width="36dp" android:layout_height="36dp"
+                android:layout_margin="4dp" android:background="@drawable/bg_color_circle" />
+            <View android:id="@+id/color5" android:layout_width="36dp" android:layout_height="36dp"
+                android:layout_margin="4dp" android:background="@drawable/bg_color_circle" />
+            <View android:id="@+id/color6" android:layout_width="36dp" android:layout_height="36dp"
+                android:layout_margin="4dp" android:background="@drawable/bg_color_circle" />
+            <View android:id="@+id/color7" android:layout_width="36dp" android:layout_height="36dp"
+                android:layout_margin="4dp" android:background="@drawable/bg_color_circle" />
+            <View android:id="@+id/color8" android:layout_width="36dp" android:layout_height="36dp"
+                android:layout_margin="4dp" android:background="@drawable/bg_color_circle" />
+
+        </LinearLayout>
+
+        <!-- Кнопка сохранить -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/save"
+            android:textAppearance="?attr/textAppearanceLabelLarge" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

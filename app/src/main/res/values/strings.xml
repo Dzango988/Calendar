@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Важные даты</string>
+    <string name="tab_calendar">Календарь</string>
+    <string name="tab_events">События</string>
+    <string name="add_date">Добавить дату</string>
+    <string name="edit_date">Редактировать</string>
+    <string name="save">Сохранить</string>
+    <string name="cancel">Отмена</string>
+    <string name="delete">Удалить</string>
+    <string name="title">Название</string>
+    <string name="description">Описание (необязательно)</string>
+    <string name="day">День</string>
+    <string name="month">Месяц</string>
+    <string name="year">Год</string>
+    <string name="category">Категория</string>
+    <string name="reminder">Напоминание</string>
+    <string name="recurring_yearly">Ежегодное событие</string>
+    <string name="color">Цвет</string>
+    <string name="no_events_today">Нет событий в этот день</string>
+    <string name="upcoming_events">Предстоящие события</string>
+    <string name="all_events">Все события</string>
+    <string name="no_upcoming">Нет предстоящих событий</string>
+    <string name="show_all">Показать все</string>
+    <string name="hide_all">Скрыть все</string>
+    <string name="today">Сегодня</string>
+    <string name="events_on_date">События на %1$s</string>
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingBottom="4dp">
+
+    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:gravity="center" android:text="Пн"
+        android:textAppearance="?attr/textAppearanceLabelSmall"
+        android:textColor="?attr/colorOnSurfaceVariant" />
+    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:gravity="center" android:text="Вт"
+        android:textAppearance="?attr/textAppearanceLabelSmall"
+        android:textColor="?attr/colorOnSurfaceVariant" />
+    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:gravity="center" android:text="Ср"
+        android:textAppearance="?attr/textAppearanceLabelSmall"
+        android:textColor="?attr/colorOnSurfaceVariant" />
+    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:gravity="center" android:text="Чт"
+        android:textAppearance="?attr/textAppearanceLabelSmall"
+        android:textColor="?attr/colorOnSurfaceVariant" />
+    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:gravity="center" android:text="Пт"
+        android:textAppearance="?attr/textAppearanceLabelSmall"
+        android:textColor="?attr/colorOnSurfaceVariant" />
+    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:gravity="center" android:text="Сб"
+        android:textAppearance="?attr/textAppearanceLabelSmall"
+        android:textColor="@color/weekend_color" />
+    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:gravity="center" android:text="Вс"
+        android:textAppearance="?attr/textAppearanceLabelSmall"
+        android:textColor="@color/weekend_color" />
+
+</LinearLayout>

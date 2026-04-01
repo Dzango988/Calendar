@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/day_cell_size"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="2dp">
+
+    <TextView
+        android:id="@+id/tvDay"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:gravity="center"
+        android:textAppearance="?attr/textAppearanceBodyMedium"
+        tools:text="15" />
+
+    <View
+        android:id="@+id/dotMarker"
+        android:layout_width="5dp"
+        android:layout_height="5dp"
+        android:background="@drawable/bg_color_circle"
+        android:visibility="invisible" />
+
+</LinearLayout>

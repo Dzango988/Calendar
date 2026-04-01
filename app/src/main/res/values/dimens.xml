@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_corner_radius">16dp</dimen>
+    <dimen name="day_cell_size">44dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="content_padding">16dp</dimen>
+    <dimen name="item_padding">12dp</dimen>
+    <dimen name="color_dot_size">6dp</dimen>
+</resources>
