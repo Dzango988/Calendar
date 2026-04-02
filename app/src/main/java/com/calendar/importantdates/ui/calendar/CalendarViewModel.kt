@@ -32,7 +32,7 @@ class CalendarViewModel(private val repository: DateRepository) : ViewModel() {
         }
 
     val datesForCurrentMonth: LiveData<List<ImportantDate>> =
-        Transformations.switchMap(_currentMonth) { month ->
+        _currentMonth.switchMap { month ->
             repository.getDatesByMonth(month)
         }
 
