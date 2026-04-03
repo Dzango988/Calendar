@@ -5,73 +5,45 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_widget_oval"
     android:gravity="center"
-    android:orientation="horizontal"
-    android:padding="16dp">
+    android:orientation="vertical"
+    android:padding="12dp">
 
-    <!-- Левая часть: иконка + отсчёт -->
-    <LinearLayout
+    <TextView
+        android:id="@+id/widget_today_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingEnd="12dp">
+        android:text="Сегодня"
+        android:textColor="#CCFFFFFF"
+        android:textSize="11sp" />
 
-        <TextView
-            android:id="@+id/widget_event_icon"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:gravity="center"
-            android:text="📅"
-            android:textSize="32sp" />
-
-        <TextView
-            android:id="@+id/widget_countdown"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:gravity="center"
-            android:maxLines="1"
-            android:text=""
-            android:textColor="#DDFFFFFF"
-            android:textSize="10sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-    <!-- Разделитель -->
-    <View
-        android:layout_width="1dp"
-        android:layout_height="40dp"
-        android:background="#44FFFFFF"
-        android:layout_marginEnd="12dp" />
-
-    <!-- Правая часть: лейбл + название -->
-    <LinearLayout
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/widget_event_icon"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center_vertical"
-        android:orientation="vertical">
+        android:layout_marginTop="2dp"
+        android:text="📅"
+        android:textSize="28sp" />
 
-        <TextView
-            android:id="@+id/widget_today_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Сегодня"
-            android:textColor="#AAFFFFFF"
-            android:textSize="10sp" />
+    <TextView
+        android:id="@+id/widget_event_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:maxLines="2"
+        android:text="Сегодня нет важных дат"
+        android:textColor="#FFFFFF"
+        android:textSize="13sp"
+        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/widget_event_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:maxLines="3"
-            android:text="Сегодня нет важных дат"
-            android:textColor="#FFFFFF"
-            android:textSize="13sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/widget_countdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="#DDFFFFFF"
+        android:textSize="11sp" />
 
 </LinearLayout>

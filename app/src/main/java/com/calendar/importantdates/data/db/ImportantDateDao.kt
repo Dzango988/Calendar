@@ -41,9 +41,9 @@ interface ImportantDateDao {
     @Query("DELETE FROM important_dates WHERE id = :id")
     suspend fun deleteDateById(id: Long)
 
-    // Sync queries for widget (runs on IO thread, not LiveData)
+    // Прямые синхронные методы для виджета (без корутин, вызываются из фонового потока)
     @Query("SELECT * FROM important_dates WHERE day = :day AND month = :month ORDER BY title")
-    suspend fun getDatesByDayAndMonthSync(day: Int, month: Int): List<ImportantDate>
+    fun getDatesByDayAndMonthDirect(day: Int, month: Int): List<ImportantDate>
 
     @Query("""
         SELECT * FROM important_dates
@@ -51,5 +51,5 @@ interface ImportantDateDao {
         ORDER BY month, day
         LIMIT :limit
     """)
-    suspend fun getUpcomingDatesSync(month: Int, day: Int, limit: Int = 5): List<ImportantDate>
+    fun getUpcomingDatesDirect(month: Int, day: Int, limit: Int): List<ImportantDate>
 }
