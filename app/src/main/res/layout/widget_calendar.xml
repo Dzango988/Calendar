@@ -1,50 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="8dp">
+    android:background="@drawable/bg_widget_oval"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="16dp">
 
+    <!-- Левая часть: эмодзи + отсчёт -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/bg_widget_oval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:paddingEnd="14dp">
 
-        <!-- Заголовок: сегодняшняя дата -->
-        <TextView
-            android:id="@+id/widget_today_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Сегодня"
-            android:textColor="#CCFFFFFF"
-            android:textSize="11sp"
-            android:letterSpacing="0.1" />
-
-        <!-- Иконка/эмодзи события -->
         <TextView
             android:id="@+id/widget_event_emoji"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
             android:text="📅"
-            android:textSize="28sp" />
+            android:textSize="36sp" />
 
-        <!-- Название события или "нет дат" -->
-        <TextView
-            android:id="@+id/widget_event_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:gravity="center"
-            android:maxLines="2"
-            android:text="Сегодня нет важных дат"
-            android:textColor="#FFFFFF"
-            android:textSize="13sp"
-            android:textStyle="bold" />
-
-        <!-- Обратный отсчёт -->
         <TextView
             android:id="@+id/widget_countdown"
             android:layout_width="wrap_content"
@@ -53,8 +30,46 @@
             android:gravity="center"
             android:text=""
             android:textColor="#DDFFFFFF"
-            android:textSize="11sp" />
+            android:textSize="11sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
-</FrameLayout>
+    <!-- Разделитель -->
+    <View
+        android:layout_width="1dp"
+        android:layout_height="48dp"
+        android:background="#44FFFFFF"
+        android:layout_marginEnd="14dp" />
+
+    <!-- Правая часть: лейбл + название -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/widget_today_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Сегодня"
+            android:textColor="#AAFFFFFF"
+            android:textSize="11sp"
+            android:letterSpacing="0.08" />
+
+        <TextView
+            android:id="@+id/widget_event_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:maxLines="3"
+            android:text="Сегодня нет важных дат"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</LinearLayout>

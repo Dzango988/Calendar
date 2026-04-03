@@ -87,7 +87,8 @@ class CalendarFragment : Fragment() {
     private fun setupClickListeners() {
         binding.btnPrevMonth.setOnClickListener { viewModel.previousMonth() }
         binding.btnNextMonth.setOnClickListener { viewModel.nextMonth() }
-        binding.fabAddDate.setOnClickListener {
+
+        val navigateToAdd = {
             val action = CalendarFragmentDirections.actionCalendarToAddDate(
                 selectedDay = viewModel.selectedDay.value ?: Calendar.getInstance().get(Calendar.DAY_OF_MONTH),
                 selectedMonth = viewModel.currentMonth.value ?: (Calendar.getInstance().get(Calendar.MONTH) + 1),
@@ -95,6 +96,9 @@ class CalendarFragment : Fragment() {
             )
             findNavController().navigate(action)
         }
+
+        binding.fabAddDate.setOnClickListener { navigateToAdd() }
+        binding.btnAddForDay.setOnClickListener { navigateToAdd() }
     }
 
     private fun observeViewModel() {
