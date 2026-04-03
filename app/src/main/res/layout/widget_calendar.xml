@@ -8,30 +8,32 @@
     android:orientation="horizontal"
     android:padding="16dp">
 
-    <!-- Левая часть: эмодзи + отсчёт -->
+    <!-- Левая часть: иконка + отсчёт -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingEnd="14dp">
+        android:paddingEnd="12dp">
 
         <TextView
-            android:id="@+id/widget_event_emoji"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/widget_event_icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:gravity="center"
             android:text="📅"
-            android:textSize="36sp" />
+            android:textSize="32sp" />
 
         <TextView
             android:id="@+id/widget_countdown"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="2dp"
             android:gravity="center"
+            android:maxLines="1"
             android:text=""
             android:textColor="#DDFFFFFF"
-            android:textSize="11sp"
+            android:textSize="10sp"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -39,9 +41,9 @@
     <!-- Разделитель -->
     <View
         android:layout_width="1dp"
-        android:layout_height="48dp"
+        android:layout_height="40dp"
         android:background="#44FFFFFF"
-        android:layout_marginEnd="14dp" />
+        android:layout_marginEnd="12dp" />
 
     <!-- Правая часть: лейбл + название -->
     <LinearLayout
@@ -57,18 +59,17 @@
             android:layout_height="wrap_content"
             android:text="Сегодня"
             android:textColor="#AAFFFFFF"
-            android:textSize="11sp"
-            android:letterSpacing="0.08" />
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/widget_event_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="2dp"
             android:maxLines="3"
             android:text="Сегодня нет важных дат"
             android:textColor="#FFFFFF"
-            android:textSize="14sp"
+            android:textSize="13sp"
             android:textStyle="bold" />
 
     </LinearLayout>

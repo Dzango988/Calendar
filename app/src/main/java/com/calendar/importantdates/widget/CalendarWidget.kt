@@ -9,9 +9,6 @@ import android.widget.RemoteViews
 import com.calendar.importantdates.R
 import com.calendar.importantdates.data.db.AppDatabase
 import com.calendar.importantdates.ui.MainActivity
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import java.util.Calendar
 
 class CalendarWidget : AppWidgetProvider() {
@@ -21,21 +18,21 @@ class CalendarWidget : AppWidgetProvider() {
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray
     ) {
-        val pending = goAsync()
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
-                appWidgetIds.forEach { widgetId ->
+        appWidgetIds.forEach { widgetId ->
+            Thread {
+                try {
                     updateWidget(context, appWidgetManager, widgetId)
+                } catch (e: Exception) {
+                    // Показываем заглушку при ошибке
+                    showFallback(context, appWidgetManager, widgetId)
                 }
-            } finally {
-                pending.finish()
-            }
+            }.start()
         }
     }
 
     companion object {
 
-        suspend fun updateWidget(
+        fun updateWidget(
             context: Context,
             appWidgetManager: AppWidgetManager,
             appWidgetId: Int
@@ -45,12 +42,17 @@ class CalendarWidget : AppWidgetProvider() {
             val todayDay = now.get(Calendar.DAY_OF_MONTH)
             val todayMonth = now.get(Calendar.MONTH) + 1
 
-            val todayEvents = dao.getDatesByDayAndMonthSync(todayDay, todayMonth)
-            val upcomingEvents = dao.getUpcomingDatesSync(todayMonth, todayDay, 5)
+            // Синхронные suspend функции вызываем через runBlocking
+            val todayEvents = kotlinx.coroutines.runBlocking {
+                dao.getDatesByDayAndMonthSync(todayDay, todayMonth)
+            }
+            val upcomingEvents = kotlinx.coroutines.runBlocking {
+                dao.getUpcomingDatesSync(todayMonth, todayDay, 5)
+            }
 
             val views = RemoteViews(context.packageName, R.layout.widget_calendar)
 
-            // Клик по всему виджету → открыть приложение
+            // Клик по виджету — открывает приложение
             val intent = Intent(context, MainActivity::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
             }
@@ -64,30 +66,43 @@ class CalendarWidget : AppWidgetProvider() {
                 todayEvents.isNotEmpty() -> {
                     val event = todayEvents.first()
                     views.setTextViewText(R.id.widget_today_label, "Сегодня")
-                    views.setTextViewText(R.id.widget_event_emoji, event.category.emoji)
+                    views.setTextViewText(R.id.widget_event_icon, event.category.emoji)
                     views.setTextViewText(R.id.widget_event_title, event.title)
-                    val extra = if (todayEvents.size > 1) " +ещё ${todayEvents.size - 1}" else ""
-                    views.setTextViewText(R.id.widget_countdown, "Сегодня!$extra")
+                    val extra = if (todayEvents.size > 1) "+${todayEvents.size - 1} ещё" else ""
+                    views.setTextViewText(R.id.widget_countdown, if (extra.isNotEmpty()) extra else "Сегодня!")
                 }
                 upcomingEvents.isNotEmpty() -> {
                     val next = upcomingEvents.first()
-                    val daysUntil = calcDaysUntil(next.day, next.month)
+                    val days = calcDaysUntil(next.day, next.month)
                     views.setTextViewText(R.id.widget_today_label, "Ближайшее")
-                    views.setTextViewText(R.id.widget_event_emoji, next.category.emoji)
+                    views.setTextViewText(R.id.widget_event_icon, next.category.emoji)
                     views.setTextViewText(R.id.widget_event_title, next.title)
                     views.setTextViewText(
                         R.id.widget_countdown,
-                        if (daysUntil == 1) "Завтра!" else "через $daysUntil дн."
+                        if (days == 1) "Завтра!" else "через $days дн."
                     )
                 }
                 else -> {
                     views.setTextViewText(R.id.widget_today_label, "Сегодня")
-                    views.setTextViewText(R.id.widget_event_emoji, "📅")
-                    views.setTextViewText(R.id.widget_event_title, "Сегодня нет важных дат")
+                    views.setTextViewText(R.id.widget_event_icon, "📅")
+                    views.setTextViewText(R.id.widget_event_title, "Нет важных дат")
                     views.setTextViewText(R.id.widget_countdown, "")
                 }
             }
 
+            appWidgetManager.updateAppWidget(appWidgetId, views)
+        }
+
+        private fun showFallback(
+            context: Context,
+            appWidgetManager: AppWidgetManager,
+            appWidgetId: Int
+        ) {
+            val views = RemoteViews(context.packageName, R.layout.widget_calendar)
+            views.setTextViewText(R.id.widget_today_label, "Сегодня")
+            views.setTextViewText(R.id.widget_event_icon, "📅")
+            views.setTextViewText(R.id.widget_event_title, "Нет важных дат")
+            views.setTextViewText(R.id.widget_countdown, "")
             appWidgetManager.updateAppWidget(appWidgetId, views)
         }
 
@@ -100,7 +115,7 @@ class CalendarWidget : AppWidgetProvider() {
                 set(Calendar.MINUTE, 0)
                 set(Calendar.SECOND, 0)
                 set(Calendar.MILLISECOND, 0)
-                if (before(now)) add(Calendar.YEAR, 1)
+                if (!after(now)) add(Calendar.YEAR, 1)
             }
             val diff = event.timeInMillis - now.timeInMillis
             return (diff / (1000L * 60 * 60 * 24)).toInt().coerceAtLeast(1)
