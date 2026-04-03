@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_large_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_widget_large"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Заголовок -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:text="📅"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginEnd="6dp" />
+
+        <TextView
+            android:id="@+id/large_header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Важные даты"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- Пустое состояние -->
+    <TextView
+        android:id="@+id/large_empty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Нет предстоящих дат"
+        android:textColor="#88FFFFFF"
+        android:textSize="11sp"
+        android:visibility="gone" />
+
+    <!-- Строка 1 -->
+    <LinearLayout
+        android:id="@+id/large_row1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/bg_widget_row"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="4dp">
+
+        <TextView
+            android:id="@+id/large_emoji1"
+            android:layout_width="24dp"
+            android:layout_height="wrap_content"
+            android:text="🎂"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/large_title1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:maxLines="1"
+            android:text="Название"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/large_days1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_widget_pill_badge"
+            android:paddingHorizontal="7dp"
+            android:paddingVertical="3dp"
+            android:text="3 дн."
+            android:textColor="#FFFFFF"
+            android:textSize="9sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- Строка 2 -->
+    <LinearLayout
+        android:id="@+id/large_row2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/bg_widget_row"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="4dp">
+
+        <TextView
+            android:id="@+id/large_emoji2"
+            android:layout_width="24dp"
+            android:layout_height="wrap_content"
+            android:text="🎂"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/large_title2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:maxLines="1"
+            android:text="Название"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/large_days2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_widget_pill_badge"
+            android:paddingHorizontal="7dp"
+            android:paddingVertical="3dp"
+            android:text="7 дн."
+            android:textColor="#FFFFFF"
+            android:textSize="9sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- Строка 3 -->
+    <LinearLayout
+        android:id="@+id/large_row3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/bg_widget_row"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="4dp">
+
+        <TextView
+            android:id="@+id/large_emoji3"
+            android:layout_width="24dp"
+            android:layout_height="wrap_content"
+            android:text="🎂"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/large_title3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:maxLines="1"
+            android:text="Название"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/large_days3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_widget_pill_badge"
+            android:paddingHorizontal="7dp"
+            android:paddingVertical="3dp"
+            android:text="14 дн."
+            android:textColor="#FFFFFF"
+            android:textSize="9sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- Строка 4 -->
+    <LinearLayout
+        android:id="@+id/large_row4"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_widget_row"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="4dp">
+
+        <TextView
+            android:id="@+id/large_emoji4"
+            android:layout_width="24dp"
+            android:layout_height="wrap_content"
+            android:text="🎂"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/large_title4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:maxLines="1"
+            android:text="Название"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/large_days4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_widget_pill_badge"
+            android:paddingHorizontal="7dp"
+            android:paddingVertical="3dp"
+            android:text="30 дн."
+            android:textColor="#FFFFFF"
+            android:textSize="9sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</LinearLayout>

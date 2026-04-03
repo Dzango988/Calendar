@@ -52,7 +52,7 @@
             </intent-filter>
         </receiver>
 
-        <!-- Виджет -->
+        <!-- Виджет классический 2×2 -->
         <receiver
             android:name=".widget.CalendarWidget"
             android:exported="true"
@@ -63,6 +63,45 @@
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/calendar_widget_info" />
+        </receiver>
+
+        <!-- Виджет мини 1×1 -->
+        <receiver
+            android:name=".widget.CalendarWidgetMini"
+            android:exported="true"
+            android:label="@string/widget_mini_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_mini_info" />
+        </receiver>
+
+        <!-- Виджет таблетка 3×1 -->
+        <receiver
+            android:name=".widget.CalendarWidgetPill"
+            android:exported="true"
+            android:label="@string/widget_pill_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_pill_info" />
+        </receiver>
+
+        <!-- Виджет большой 4×2 -->
+        <receiver
+            android:name=".widget.CalendarWidgetLarge"
+            android:exported="true"
+            android:label="@string/widget_large_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_large_info" />
         </receiver>
 
     </application>

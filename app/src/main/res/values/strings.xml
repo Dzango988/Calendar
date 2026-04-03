@@ -27,4 +27,10 @@
     <string name="events_on_date">События на %1$s</string>
     <string name="widget_name">Важные даты</string>
     <string name="widget_description">Показывает ближайшие важные даты и обратный отсчёт</string>
+    <string name="widget_mini_name">Важные даты — Мини</string>
+    <string name="widget_mini_desc">Компактный виджет с ближайшей датой</string>
+    <string name="widget_pill_name">Важные даты — Таблетка</string>
+    <string name="widget_pill_desc">Горизонтальный виджет с названием и отсчётом</string>
+    <string name="widget_large_name">Важные даты — Список</string>
+    <string name="widget_large_desc">Большой виджет со списком ближайших событий</string>
 </resources>
