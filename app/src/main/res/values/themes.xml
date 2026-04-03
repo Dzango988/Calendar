@@ -20,4 +20,21 @@
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
+
+    <!-- Тема для сплэш-экрана (без ActionBar) -->
+    <style name="Theme.ImportantDates.Splash" parent="Theme.ImportantDates">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@color/md_theme_primary</item>
+        <item name="android:navigationBarColor">@color/md_theme_primary</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <!-- Тема для онбординга (полноэкранная) -->
+    <style name="Theme.ImportantDates.Fullscreen" parent="Theme.ImportantDates">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
 </resources>
