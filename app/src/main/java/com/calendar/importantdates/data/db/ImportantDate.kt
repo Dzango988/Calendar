@@ -19,7 +19,8 @@ data class ImportantDate(
     val reminderDaysBefore: Int = 1,  // за сколько дней напоминать
     val isRecurringYearly: Boolean = true,
     val colorHex: String = "#FF6B6B",
-    val createdAt: Long = System.currentTimeMillis()
+    val createdAt: Long = System.currentTimeMillis(),
+    val externalId: String? = null   // ID из Google Calendar (для дедупликации)
 ) : Parcelable
 
 enum class DateCategory(val displayName: String, val emoji: String) {

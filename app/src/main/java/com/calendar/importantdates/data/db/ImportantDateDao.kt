@@ -41,7 +41,14 @@ interface ImportantDateDao {
     @Query("DELETE FROM important_dates WHERE id = :id")
     suspend fun deleteDateById(id: Long)
 
-    // Прямые синхронные методы для виджета (без корутин, вызываются из фонового потока)
+    // Прямые синхронные методы для виджета/BootReceiver (без корутин, вызываются из фонового потока)
+    @Query("SELECT * FROM important_dates ORDER BY month, day")
+    fun getAllDatesDirect(): List<ImportantDate>
+
+    @Query("SELECT * FROM important_dates WHERE externalId = :externalId LIMIT 1")
+    suspend fun getByExternalId(externalId: String): ImportantDate?
+
+
     @Query("SELECT * FROM important_dates WHERE day = :day AND month = :month ORDER BY title")
     fun getDatesByDayAndMonthDirect(day: Int, month: Int): List<ImportantDate>
 

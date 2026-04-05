@@ -23,6 +23,9 @@ class DateRepository(private val db: AppDatabase) {
     suspend fun getDateById(id: Long): ImportantDate? =
         db.importantDateDao().getDateById(id)
 
+    suspend fun getByExternalId(externalId: String): ImportantDate? =
+        db.importantDateDao().getByExternalId(externalId)
+
     suspend fun insertDate(date: ImportantDate): Long =
         db.importantDateDao().insertDate(date)
 

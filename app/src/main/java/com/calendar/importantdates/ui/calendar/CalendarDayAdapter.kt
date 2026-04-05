@@ -20,7 +20,7 @@ class CalendarDayAdapter(
                 binding.tvDay.text = ""
                 binding.root.isClickable = false
                 binding.dotMarker.visibility = android.view.View.INVISIBLE
-                binding.root.background = null
+                binding.tvDay.background = null
                 return
             }
 
@@ -32,25 +32,25 @@ class CalendarDayAdapter(
 
             when {
                 day.isSelected -> {
-                    binding.root.setBackgroundResource(com.calendar.importantdates.R.drawable.bg_day_selected)
+                    binding.tvDay.setBackgroundResource(com.calendar.importantdates.R.drawable.bg_day_selected)
                     binding.tvDay.setTextColor(
                         binding.root.context.getColor(com.calendar.importantdates.R.color.white)
                     )
                 }
                 day.isToday -> {
-                    binding.root.setBackgroundResource(com.calendar.importantdates.R.drawable.bg_day_today)
+                    binding.tvDay.setBackgroundResource(com.calendar.importantdates.R.drawable.bg_day_today)
                     binding.tvDay.setTextColor(
                         binding.root.context.getColor(com.calendar.importantdates.R.color.md_theme_primary)
                     )
                 }
                 day.isWeekend -> {
-                    binding.root.background = null
+                    binding.tvDay.background = null
                     binding.tvDay.setTextColor(
                         binding.root.context.getColor(com.calendar.importantdates.R.color.weekend_color)
                     )
                 }
                 else -> {
-                    binding.root.background = null
+                    binding.tvDay.background = null
                     binding.tvDay.setTextColor(
                         binding.root.context.getColor(com.calendar.importantdates.R.color.on_surface)
                     )

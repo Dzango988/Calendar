@@ -25,6 +25,7 @@
     <string name="hide_all">Скрыть все</string>
     <string name="today">Сегодня</string>
     <string name="events_on_date">События на %1$s</string>
+    <string name="sync_google_calendar">Синхронизировать с Google Календарём</string>
     <string name="widget_name">Важные даты</string>
     <string name="widget_description">Показывает ближайшие важные даты и обратный отсчёт</string>
     <string name="widget_mini_name">Важные даты — Мини</string>

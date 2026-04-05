@@ -24,7 +24,10 @@ class AddEditDateFragment : Fragment() {
     private val args: AddEditDateFragmentArgs by navArgs()
 
     private val viewModel: AddEditDateViewModel by viewModels {
-        AddEditDateViewModelFactory((requireActivity().application as App).repository)
+        AddEditDateViewModelFactory(
+            requireActivity().application,
+            (requireActivity().application as App).repository
+        )
     }
 
     private val categories = DateCategory.values()

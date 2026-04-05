@@ -17,6 +17,19 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!-- Синхронизация с Google Календарём -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSyncGoogleCalendar"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/sync_google_calendar"
+                app:icon="@drawable/ic_sync"
+                app:iconGravity="start" />
+
             <!-- Предстоящие события -->
             <TextView
                 android:layout_width="match_parent"
