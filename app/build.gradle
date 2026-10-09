@@ -20,8 +20,29 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    // Release signing is provided only by the CI runner or local environment.
+    // Never commit a .jks file or signing passwords to this repository.
+    def signingPath = System.getenv('CALENDAR_SIGNING_STORE_FILE')
+    def signingStorePassword = System.getenv('CALENDAR_SIGNING_STORE_PASSWORD')
+    def signingKeyAlias = System.getenv('CALENDAR_SIGNING_KEY_ALIAS')
+    def signingKeyPassword = System.getenv('CALENDAR_SIGNING_KEY_PASSWORD')
+
+    if (signingPath && signingStorePassword && signingKeyAlias && signingKeyPassword) {
+        signingConfigs {
+            release {
+                storeFile file(signingPath)
+                storePassword signingStorePassword
+                keyAlias signingKeyAlias
+                keyPassword signingKeyPassword
+            }
+        }
+    }
+
     buildTypes {
         release {
+            if (signingConfigs.findByName('release') != null) {
+                signingConfig signingConfigs.release
+            }
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
