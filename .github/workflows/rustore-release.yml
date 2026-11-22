@@ -16,7 +16,7 @@ jobs:
           java-version: '17'
       - uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: '8.6'
+          gradle-version: '8.9'
       - name: Verify signing secrets and install Android SDK
         env:
           STORE_BASE64: ${{ secrets.CALENDAR_KEYSTORE_BASE64 }}
@@ -31,7 +31,7 @@ jobs:
           SDKMANAGER=$(find "${ANDROID_HOME:-/usr/local/lib/android/sdk}/cmdline-tools" -type f -name sdkmanager | head -n 1)
           test -n "$SDKMANAGER"
           yes | "$SDKMANAGER" --licenses >/dev/null || true
-          "$SDKMANAGER" "platforms;android-34" "build-tools;34.0.0"
+          "$SDKMANAGER" "platforms;android-35" "build-tools;35.0.0"
       - name: Restore private signing key
         env:
           STORE_BASE64: ${{ secrets.CALENDAR_KEYSTORE_BASE64 }}
@@ -54,7 +54,7 @@ jobs:
           APKSIGNER=$(find "${ANDROID_HOME:-/usr/local/lib/android/sdk}/build-tools" -name apksigner -type f | sort -V | tail -n 1)
           "$APKSIGNER" verify --verbose "$APK"
           mkdir -p dist
-          cp "$APK" dist/calendar-rustore-v1.0.apk
+          cp "$APK" dist/calendar-rustore-v1.1.apk
       - uses: actions/upload-artifact@v4
         with:
           name: calendar-rustore-signed-apk
